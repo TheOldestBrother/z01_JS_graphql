@@ -1,7 +1,4 @@
-import { renderAuth } from "./modules/renderer.js";
-import { submitForm } from "./modules/session.js";
-
-console.log("Hello");
+import { renderPage } from "./modules/renderer.js";
 
 //TODO Render Auth page at launch
-renderAuth()
+renderPage()

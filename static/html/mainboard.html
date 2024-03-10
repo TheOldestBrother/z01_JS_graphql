@@ -1,0 +1,66 @@
+<body>
+    <div id="logout">
+        <input type="button" value="Logout">
+    </div>
+    <section id="userMainInfo">
+        <div id="profile" class="row">
+            <div id="overflow">
+                <div id="level">
+                    <p>Level</p>
+                    <p>0</p>
+                </div>
+            </div>
+            <div id="xp" class="lightOrange">
+                <p>total XP</p>
+                <p>0.00 kB</p>
+            </div>
+        </div>
+        <div id="skillSet" class="row">
+            <div class="skill">
+                <p>Skill 1</p>
+            </div>
+            <div class="skill">
+                <p>Skill 2</p>
+            </div>
+            <div class="skill">
+                <p>Skill 3</p>
+            </div>
+            <div id="audit" class="skill">
+                <div class="title">
+                    <p>AUDIT</p>
+                    <p id="auditRatio">1</p>
+                </div>
+                <div class="ratio lightOrange">
+                    <div class="text">
+                        <h6>UP</h6>
+                        <p id="xpUP">0.00MB</p>
+                    </div>
+                    <svg id="xpUpProgressBar" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" x2="100%" y1="0" y2="0" stroke="#1d0507" stroke-width="12px" />
+                        <line x1="0" x2="100%" y1="0" y2="0" stroke="#0BB054" stroke-width="12px" />
+                    </svg>
+                </div>
+                <div class="ratio lightOrange">
+                    <div class="text">
+                        <h6>DOWN</h6>
+                        <p id="xpDOWN">0.00MB</p>
+                    </div>
+                    <svg id="xpDownProgressBar" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="0" x2="100%" y1="0" y2="0" stroke="#1d0507" stroke-width="12px" />
+                        <line x1="0" x2="100%" y1="0" y2="0" stroke="#FFC1AB" stroke-width="12px" />
+                    </svg>
+                </div>
+                <div id="newAudit" class="text">
+                    <h6>Graphql</h6>
+                    <p>@aguillen</p>
+                    <img src="" alt="down arrow">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="currentPositionGraph">
+        <svg>
+            <polyline fill="none" stroke="black" stroke-width="2" points="0,100 10,100 20,90 30,50"/>
+        </svg>
+    </section>
+</body>

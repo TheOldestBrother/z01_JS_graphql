@@ -1,7 +1,11 @@
-{{ template "header" .}}
+<body>
+    <section id="error">
+        <h4>Error: Unknown</h4>
+        <p>Invalid credentials, please try again with the correct username/email and password</p>
+    </section>
     <section id="main">
         <div id="loginInfo">
-            <h3>Please provide your login info used for  
+            <h3>Please provide your credentials used for
                 https://zone01normandie.org/</h3>
             <form id="loginForm" method="post">
                 <input type="text" name="username" placeholder="Username or Email">
@@ -10,4 +14,4 @@
             </form>
         </div>
     </section>
-{{ template "footer" .}}
+</body>

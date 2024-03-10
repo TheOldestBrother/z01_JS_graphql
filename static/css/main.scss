@@ -1,5 +1,26 @@
+@use "./modules/profile";
+@use "./modules/position";
+
+$bg_color: #1d0507;
+
+
+* {
+    margin:  0;
+    padding: 0;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    background-color: $bg_color ;
+}
+
 #loginInfo {
-    width: 60vh;
+    width: 60vw;
+    min-width: 80px;
     margin: 100px auto 0 auto;
 
     h3 {
@@ -9,6 +30,16 @@
     }
 }
 
+#error {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#error, #main {
+    color: white;
+}
+
 #loginForm {
     width: 50%;
     display: flex;
@@ -16,10 +47,8 @@
     margin: 0 auto;
 
     input {
-        // width: 50%;
         height: 32px;
         margin-top: 10px;
-        // margin: 10px auto 0 auto;
         padding-left: 15px;
         box-sizing: border-box;
 

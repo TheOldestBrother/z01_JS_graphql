@@ -1,13 +1,26 @@
-import { submitForm } from "./session.js"
+import { logout, setUpUser, submitForm } from "./session.js"
 
+var parser = new DOMParser();
 
-function renderAuth() {
-    // let auth = document.createElement('div')
-    // auth.innerHTML = `INSERT HTML HERE`
-    
-    console.log("Submit func set");
-    // console.log(document.getElementById('loginForm').on)
+async function renderAuth() {
+    let auth = await fetch('auth.html').then(resp => resp.text())
+    let doc = parser.parseFromString(auth, 'text/html');
+
+    document.getElementsByTagName('body')[0].innerHTML = doc.body.innerHTML
     document.getElementById('loginForm').onsubmit = submitForm
 }
 
-export { renderAuth }
+async function renderMain() {
+    let main = await fetch('mainboard.html').then(resp => resp.text())
+    let doc = parser.parseFromString(main, 'text/html');
+
+    document.getElementsByTagName('body')[0].innerHTML = doc.body.innerHTML
+    document.getElementById('logout').onclick = logout
+    setUpUser()
+}
+
+async function renderPage() {
+    (localStorage.getItem('currentUser') !== null) ? renderMain() : renderAuth()
+}
+
+export { renderPage }
