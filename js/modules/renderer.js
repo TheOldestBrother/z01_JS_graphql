@@ -3,7 +3,7 @@ import { logout, setUpUser, submitForm } from "./session.js"
 var parser = new DOMParser();
 
 async function renderAuth() {
-    let auth = await fetch('auth.html').then(resp => resp.text())
+    let auth = await fetch('static/html/auth.html').then(resp => resp.text())
     let doc = parser.parseFromString(auth, 'text/html');
 
     document.getElementsByTagName('body')[0].innerHTML = doc.body.innerHTML
@@ -11,7 +11,7 @@ async function renderAuth() {
 }
 
 async function renderMain() {
-    let main = await fetch('mainboard.html').then(resp => resp.text())
+    let main = await fetch('static/html/mainboard.html').then(resp => resp.text())
     let doc = parser.parseFromString(main, 'text/html');
 
     document.getElementsByTagName('body')[0].innerHTML = doc.body.innerHTML
