@@ -74,6 +74,7 @@ export const setUpUser = () => {
     setlevel()
     setAuditRatio()
     setPositionGraph()
+    setNewAudit()
 };
 
 async function query(q) {
@@ -108,6 +109,31 @@ async function getTotalXP() {
 
 async function setTotalXP() {
     document.querySelector('#xp p:last-child').innerText = formatXPSize(await getTotalXP())
+}
+
+async function setNewAudit() {
+    const q = `{  audit (where: { resultId: {_is_null: true}}) {
+        group {
+            path
+            captainLogin
+        }
+        private {
+            code
+        }}
+    }`
+
+    const audit = await query(q).then(j => j.data.audit)
+
+    if (audit.length >= 1) {
+        const path = audit[0].group.path.split('/')
+        
+        document.querySelector('#newAudit div:first-child h6').innerText = path[path.length - 1]
+        document.querySelector('#newAudit div:first-child p').innerText = `@${audit[0].group.captainLogin}`
+        document.querySelector('#newAudit div:last-child h1').innerText = audit[0].private.code.toUpperCase()
+
+        console.log("Setting display as block");
+        document.getElementById('newAudit').style.display = 'flex'
+    }
 }
 
 async function setAuditRatio() {
@@ -182,7 +208,7 @@ async function setPositionGraph() {
 
     const graphWidth = r.right - r.left - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight)
     const graphHeight = r.bottom - r.top - parseFloat(cs.paddingBottom) - parseFloat(cs.paddingTop)
-    
+
     const currentDate = new Date()
     let minimumDate = new Date()
     let startXP = 0
@@ -234,7 +260,7 @@ function handleConnexionError(err) {
 
     if (e !== '401') {
         errComment.innerText = "Internal Server Error, please try again later or contact the support."
-    }else {
+    } else {
         errComment.innerText = "Credentials not recognized, please type again."
     }
 }
