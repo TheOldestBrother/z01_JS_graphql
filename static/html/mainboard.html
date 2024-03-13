@@ -10,9 +10,17 @@
                     <p>0</p>
                 </div>
             </div>
-            <div id="xp" class="lightOrange">
-                <p>total XP</p>
-                <p>0.00 kB</p>
+            <div>
+                <div id="userNameAndXp" class="lightOrange">
+                    <div id="userName">
+                        <p>John Doe</p>
+                        <p>@jdoe</p>
+                    </div>
+                    <div id="xp">
+                        <p>total XP</p>
+                        <p>0.00 kB</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="skillSet" class="row">
@@ -58,8 +66,6 @@
                     <div>
                         <h1>AB_CD</h1>
                     </div>
-
-                    <!-- <img src="" alt="down arrow"> -->
                 </div>
             </div>
         </div>
@@ -67,8 +73,8 @@
     <section id="currentPositionGraph">
         <svg>
             <polyline fill="none" stroke="black" stroke-width="2" points="0,100 10,100 20,90 30,50"/>
-            <text text-anchor="middle" x="-115" y="20" transform="translate(0,0) rotate(-90)">Total XP</text>
-            <text text-anchor="middle" x="265" y="225" transform="translate(0,0)">Time elapsed in days</text>
+            <text id="axisY" text-anchor="middle" x="-115" y="20" transform="translate(0,0) rotate(-90)">Total XP</text>
+            <text id="axisX" text-anchor="middle" x="265" y="225" transform="translate(0,0)">Time elapsed in days</text>
         </svg>
     </section>
 </body>

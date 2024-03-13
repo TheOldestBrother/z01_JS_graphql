@@ -34,7 +34,7 @@ div {
 #profile {
     border-radius: 80px 0 0 0;
 
-    #xp {
+    #xp{
         display: flex;
         align-items: end;
         justify-content: center;
@@ -47,6 +47,10 @@ div {
 
         p {
             margin: 0 30px 0 20px;
+
+            font-size: 45px;
+            font-weight: 900;
+            text-align: end;
         }
 
         p:last-child {
@@ -55,6 +59,45 @@ div {
             font-size: 45px;
             font-weight: 900;
             text-align: end;
+        }
+    }
+
+    > div:nth-child(2) {
+        display: flex;
+        align-items: end;
+        flex-direction: column;
+        flex-grow: 1;
+
+        padding-right: 15px;
+        background-color: $profile_color;
+
+        #userNameAndXp {
+            width: 100%;
+        
+            display: flex;
+            justify-content: space-between;
+            
+            #userName {
+                p:last-child {
+                    text-align: left;
+                    font-size: 27px;
+                }
+            }
+
+            #xp {
+                p:first-child {
+                    font-size: 17px;
+                }
+
+            }
+            
+            p {
+                margin: 0 10px 0 20px;
+                
+                font-size: 45px;
+                font-weight: 900;
+                text-align: end;
+            }
         }
     }
 }

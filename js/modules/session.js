@@ -70,6 +70,7 @@ const submitForm = (e) => {
 };
 
 export const setUpUser = () => {
+    setUsername()
     setTotalXP()
     setlevel()
     setAuditRatio()
@@ -108,7 +109,7 @@ async function getTotalXP() {
 }
 
 async function setTotalXP() {
-    document.querySelector('#xp p:last-child').innerText = formatXPSize(await getTotalXP())
+    document.querySelector('#xp > p:last-child').innerText = formatXPSize(await getTotalXP())
 }
 
 async function setNewAudit() {
@@ -134,6 +135,21 @@ async function setNewAudit() {
         console.log("Setting display as block");
         document.getElementById('newAudit').style.display = 'flex'
     }
+}
+
+async function setUsername() {
+    const q = `{ user {
+        login
+        firstName
+        lastName
+    }}`
+
+    const data = await query(q).then(j => j.data)
+
+    console.log(data.user[0]);
+
+    document.querySelector('#userName p').innerText = `${data.user[0].firstName} ${data.user[0].lastName}`
+    document.querySelector('#userName p:last-child').innerText = `@${data.user[0].login}`
 }
 
 async function setAuditRatio() {
@@ -241,6 +257,7 @@ async function setPositionGraph() {
     }, "")
 
     document.querySelector('#currentPositionGraph svg polyline').setAttribute('points', points)
+    document.getElementById('axisX').setAttribute('x',graphWidth/2)
 }
 
 export function logout() {
